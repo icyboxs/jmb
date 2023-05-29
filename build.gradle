@@ -1,6 +1,6 @@
 plugins {
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.13'
+    id 'org.openjfx.javafxplugin' version '0.0.14'
 }
 String engineVersion = "3.6.0-stable"
 group 'org.scrappers'
@@ -13,7 +13,7 @@ repositories {
 
 javafx {
     version = "17.0.2"
-    modules = [ 'javafx.controls', 'javafx.graphics', 'javafx.swing', 'javafx.base']
+    modules = [ 'javafx.controls', 'javafx.fxml' , 'javafx.swing']
 }
 
 dependencies {
@@ -42,7 +42,26 @@ dependencies {
 test {
     useJUnitPlatform()
 }
-
+/*
 application {
     mainClass = "com.ss.editor.Launcher"
 }
+*/
+mainClassName = 'com.ss.editor.Launcher'
+
+/*
+run {
+    applicationDefaultJvmArgs = ['--add-exports=javafx.graphics/com.sun.javafx.iio=ALL-UNNAMED',
+                                 '--add-exports=javafx.graphics/com.sun.javafx.iio.common=ALL-UNNAMED',
+                                 '--add-exports=javafx.graphics/com.sun.javafx.scene=ALL-UNNAMED',
+                                 '--add-exports=javafx.graphics/com.sun.glass.ui=ALL-UNNAMED',
+    ]
+
+    jvmArgs = ['--add-exports=javafx.graphics/com.sun.javafx.iio=ALL-UNNAMED',
+               '--add-exports=javafx.graphics/com.sun.javafx.iio.common=ALL-UNNAMED',
+               '--add-exports=javafx.graphics/com.sun.javafx.scene=ALL-UNNAMED',
+               '--add-exports=javafx.graphics/com.sun.glass.ui=ALL-UNNAMED',
+
+    ]
+}
+*/
