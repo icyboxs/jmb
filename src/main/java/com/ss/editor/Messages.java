@@ -5,6 +5,8 @@ import static com.ss.rlib.util.ReflectionUtils.getUnsafeFieldValue;
 import com.sun.javafx.scene.control.skin.resources.ControlResources;
 import com.ss.rlib.util.PropertyLoader;
 
+import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -2286,7 +2288,7 @@ public class Messages {
     static {
 
         final Locale locale = Locale.getDefault();
-        final ClassLoader classLoader = ControlResources.class.getClassLoader();
+        ClassLoader classLoader = ControlResources.class.getClassLoader();
 
         final ResourceBundle controlBundle = getBundle("com/sun/javafx/scene/control/skin/resources/controls",
                 locale, classLoader, PropertyLoader.getInstance());
@@ -2297,6 +2299,7 @@ public class Messages {
          Map override = getUnsafeFieldValue(overrideBundle, "lookup");
          Map original = getUnsafeFieldValue(controlBundle, "lookup");
 
+         
         //noinspection ConstantConditions,ConstantConditions,unchecked
         original.putAll(override);
 

@@ -4,7 +4,7 @@ plugins {
 }
 String engineVersion = "3.6.0-stable"
 group 'org.scrappers'
-version '1.0-RM-VERSION'
+
 
 repositories {
     mavenCentral()
@@ -12,14 +12,22 @@ repositories {
 }
 
 javafx {
-    version = "17.0.2"
-    modules = [ 'javafx.controls', 'javafx.fxml' , 'javafx.swing']
+    version = "17.0.7"
+    modules = [
+        'javafx.controls',
+        'javafx.base',
+        'javafx.graphics',
+        'javafx.swing',
+        'javafx.fxml',
+        'javafx.media',
+        'javafx.web'
+    ]
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
-    implementation 'org.jetbrains:annotations:16.0.2'
+
     /* local dependencies */
     implementation fileTree(dir: "libs", include: ["*.jar", "*.so"])
     implementation fileTree(dir: "libs/extensions", include: ["*.jar", "*.so"])
@@ -37,25 +45,18 @@ dependencies {
     implementation "org.jmonkeyengine:jme3-lwjgl3:$engineVersion"
     implementation "org.jmonkeyengine:jme3-plugins:$engineVersion"
     
+    
 }
 
 test {
     useJUnitPlatform()
 }
-/*
+
 application {
     mainClass = "com.ss.editor.Launcher"
 }
-*/
-mainClassName = 'com.ss.editor.Launcher'
 
-/*
 run {
-    applicationDefaultJvmArgs = ['--add-exports=javafx.graphics/com.sun.javafx.iio=ALL-UNNAMED',
-                                 '--add-exports=javafx.graphics/com.sun.javafx.iio.common=ALL-UNNAMED',
-                                 '--add-exports=javafx.graphics/com.sun.javafx.scene=ALL-UNNAMED',
-                                 '--add-exports=javafx.graphics/com.sun.glass.ui=ALL-UNNAMED',
-    ]
 
     jvmArgs = ['--add-exports=javafx.graphics/com.sun.javafx.iio=ALL-UNNAMED',
                '--add-exports=javafx.graphics/com.sun.javafx.iio.common=ALL-UNNAMED',
@@ -63,5 +64,5 @@ run {
                '--add-exports=javafx.graphics/com.sun.glass.ui=ALL-UNNAMED',
 
     ]
+    
 }
-*/

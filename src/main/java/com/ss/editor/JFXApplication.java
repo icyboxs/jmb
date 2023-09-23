@@ -14,6 +14,7 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
 import static com.jme3x.jfx.injfx.JmeToJFXIntegrator.bind;
 
 /**
@@ -66,7 +67,7 @@ public class JFXApplication extends Application {
         JFXApplication.semaphore.unlock(JFXApplication.mutex);
         this.stage = stage;
 
-        SvgImageLoaderFactory.install();
+        SvgImageLoaderFactory.getInstance();
 
         final EditorConfig setupConfig = setupDefaultStageConfig(stage);
         observeWindowChanges(setupConfig);
